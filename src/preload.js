@@ -12,6 +12,7 @@ start.onclick = (e) => {
     mediaRecorder.start();
     start.classList.add('is-danger')
     start.innerText = 'Now Recording!'
+    stop.innerText = "Stop"
 };
 
 const stop = document.getElementById('stopBtn')
