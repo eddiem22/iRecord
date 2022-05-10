@@ -1,20 +1,20 @@
-const {desktopCapturer, remote} = require('electron');
-const {writeFile} = require('fs');
-const{dialog, Menu} = remote;
+const { desktopCapturer, remote} = require('electron');
+const { writeFile } = require('fs');
+const {dialog, Menu} = remote;
 
 var mediaRecorder;
 const videoBytes = []
 
 const videoHTMLElement = document.querySelector('video')
 
-const start = document.getElementById('start')
+const start = document.getElementById('startBtn')
 start.onclick = (e) => {
     mediaRecorder.start();
     start.classList.add('is-danger')
     start.innerText = 'Now Recording!'
 };
 
-const stop = document.getElementById('stop')
+const stop = document.getElementById('stopBtn')
 
 stop.onclick = (e) => {
     mediaRecorder.stop()
@@ -22,16 +22,16 @@ stop.onclick = (e) => {
     start.innerText = "Start"
 };
 
-const videoSelect = document.getElementById('videoSelect')
+const videoSelect = document.getElementById('videoSelectBtn')
 videoSelect.onclick = getVideoSources;
 
 
-const getVideoSources = async() => {
+async function getVideoSources()  {
     const input = await desktopCapturer.getSources({types: ['window', 'screen']})
 
 
-const videoOptions = Menu.buildFromTemplate(
-    inputSources.map(source => {
+    const videoOptions = Menu.buildFromTemplate(
+    input.map(source => {
         return {
             label: source.name,
             click: () => selectSource(source)

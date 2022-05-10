@@ -3,21 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <title>Hello World!</title>
+    <link
+       rel="stylesheet"
+       href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
+     />
     <link rel="stylesheet" href="index.css" />
-    <script defer src = "record.js"></script>
+    <script defer src = "preload.js"></script>
   </head>
   <body class = "content">
     <h1><b>iRecord</b></h1>
 
     <video></video>
 
-    <button id = "start" class = "button is-primary"></button>
-    <button id = "stop" class = "button is-warning"></button>
+    <button id = "startBtn" class = "button is-primary"></button>
+    <button id = "stopBtn" class = "button is-warning"></button>
 
 
     <hr />
 
-    <button id="videoSelect" class = "button is-text">
+    <button id="videoSelectBtn" class = "button is-text">
       Choose Your Video Source
     </button>
   </body>
